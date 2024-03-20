@@ -72,7 +72,7 @@ export default function Price() {
                 </SimpleGrid>
                 <Flex mt={4} justify="center">
                     <Button
-                        disabled={currentPage === 1}
+                        disabled={currentPage <= 1}
                         onClick={prevPage}
                         mr={2}
                     >
