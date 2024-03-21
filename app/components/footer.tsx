@@ -4,7 +4,7 @@ export default function Footer() {
         <Box maxW='full' className="footer" bg='black' h='60px' pr={8} pl={8} py={4}>
             <HStack>
                 <Spacer></Spacer>
-                <Text color='white'>copyright@2024 communeai.org all right reserved</Text>
+                <Text color='wheat'>copyright@2024 communeai.org all right reserved</Text>
                 <Spacer></Spacer>
             </HStack>
             

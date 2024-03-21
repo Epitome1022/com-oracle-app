@@ -7,11 +7,11 @@ export default function Index() {
         <Flex pt={16} w='60vw'>
           <VStack>
             <Wrap align='start' mt={24}>
-              <Text fontSize={50} fontWeight={800} color='white'>{`Highly Reliable Data Feeds`}</Text>
+              <Text fontSize={50} fontWeight={800} color='wheat'>{`Highly Reliable Data Feeds`}</Text>
               <Text fontSize={20} color='gray.400'>Commune is a revolutionary protocol that connects developer tools, fostering collaboration, interoperability, and innovation within the development community.</Text>
               <ButtonGroup>
-                <Button bg='green.400' color='white'>Contact Us</Button>
-                <Button bg='green.400' color='white'>View Our Data</Button>
+                <Button bg='green.400' color='wheat'>Contact Us</Button>
+                <Button bg='green.400' color='wheat'>View Our Data</Button>
               </ButtonGroup>
             </Wrap>
           </VStack>
