@@ -44,7 +44,7 @@ export default function Github() {
         </Flex>
         <SimpleGrid spacing={5} columns={3} w="60vw">
           {GitHubOracles && GitHubOracles.map((oracle:any, index: any)=> (
-            <Card maxW='sm' bg='gray.900'>
+            <Card maxW='sm' bg='gray.900' key={index}>
               <CardBody>
                 <Image
                   src={oracle.imgUrl}

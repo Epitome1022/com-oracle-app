@@ -21,7 +21,7 @@ export default function Index() {
           <Heading mt={16} mb={16} color='gray.200'>Supported Chains</Heading>
           <SimpleGrid columns={6} spacing={6}>
             {chains.map((chain: any, index: any) => (
-              <VStack>
+              <VStack key={index}>
                 <Image src={chain.image} alt={chain.name} w='50px' h='50px'/>
                 <Text color='gray.200'>{chain.name}</Text>
               </VStack>

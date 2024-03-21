@@ -1,4 +1,4 @@
-{
+const TokenListString = `{
   "AR": {
     "name": "Arweave",
     "logoURI": "https://cryptologos.cc/logos/arweave-ar-logo.svg?v=010",
@@ -839,7 +839,6 @@
     "providers": ["redstone"],
     "tags": ["crypto"]
   },
-
   "YFV": {
     "name": "YFV",
     "logoURI": "https://docs.valuedefi.io/img/logo.png",
@@ -931,7 +930,6 @@
     "providers": ["redstone"],
     "tags": ["crypto"]
   },
-
   "EUR": {
     "name": "EUR",
     "logoURI": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Euro_symbol_black.svg",
@@ -967,7 +965,6 @@
     "providers": ["redstone"],
     "tags": ["currencies"]
   },
-
   "TSLA": {
     "name": "Tesla",
     "logoURI": "https://cdn.worldvectorlogo.com/logos/tesla-motors.svg",
@@ -1080,7 +1077,6 @@
     "providers": ["redstone-stocks"],
     "tags": ["stocks"]
   },
-
   "SPY": {
     "name": "S&P 500 SPDR",
     "logoURI": "https://cdn.worldvectorlogo.com/logos/s-p-1.svg",
@@ -1137,7 +1133,6 @@
     "providers": ["redstone-stocks"],
     "tags": ["etfs"]
   },
-
   "ZC=F": {
     "name": "Corn",
     "logoURI": "https://image.flaticon.com/icons/png/512/1147/1147593.png",
@@ -1194,7 +1189,6 @@
     "providers": ["redstone-stocks"],
     "tags": ["grains"]
   },
-
   "CL=F": {
     "name": "Crude Oil WTI",
     "logoURI": "https://image.flaticon.com/icons/png/512/3129/3129632.png",
@@ -1230,7 +1224,6 @@
     "providers": ["redstone-stocks"],
     "tags": ["energies"]
   },
-
   "GC=F": {
     "name": "Gold",
     "logoURI": "https://image.flaticon.com/icons/png/512/1473/1473504.png",
@@ -1266,7 +1259,6 @@
     "providers": ["redstone-stocks"],
     "tags": ["metals"]
   },
-
   "LE=F": {
     "name": "Live Cattle",
     "logoURI": "https://image.flaticon.com/icons/png/512/676/676157.png",
@@ -1295,27 +1287,6 @@
     "providers": ["redstone-stocks"],
     "tags": ["livestocks"]
   },
-  "DC=F": {
-    "name": "Milk",
-    "logoURI": "https://image.flaticon.com/icons/png/512/684/684631.png",
-    "tags": ["livestocks"]
-  },
-  "GNF=F": {
-    "name": "Milk",
-    "logoURI": "https://image.flaticon.com/icons/png/512/4329/4329615.png",
-    "tags": ["livestocks"]
-  },
-  "CB=F": {
-    "name": "Butter Cash-Settled",
-    "logoURI": "https://image.flaticon.com/icons/png/512/2915/2915843.png",
-    "tags": ["livestocks"]
-  },
-  "CSC=F": {
-    "name": "Cheese Cash-Settled",
-    "logoURI": "https://image.flaticon.com/icons/png/512/1071/1071146.png",
-    "tags": ["livestocks"]
-  },
-
   "DLM21": {
     "name": "Class III Milk (Jun '21)",
     "logoURI": "https://image.flaticon.com/icons/png/512/684/684631.png",
@@ -1344,7 +1315,6 @@
     "providers": ["redstone-stocks"],
     "tags": ["livestocks"]
   },
-
   "CTZ21": {
     "name": "Cotton #2 (Dec '21)",
     "logoURI": "https://image.flaticon.com/icons/png/512/3174/3174960.png",
@@ -1387,7 +1357,6 @@
     "providers": ["redstone-stocks"],
     "tags": ["softs"]
   },
-
   "ALC": {
     "name": "Ayaka Lab",
     "logoURI": "https://avatars.githubusercontent.com/u/68431453?s=200&v=4",
@@ -1430,11 +1399,6 @@
     "providers": ["redstone"],
     "tags": ["crypto", "pst"]
   },
-  "EMD_PST_TOKEN": {
-    "name": "EMD_PST_TOKEN",
-    "providers": ["redstone"],
-    "tags": ["crypto", "pst"]
-  },
   "OPENBITS": {
     "name": "OpenBits",
     "logoURI": "https://avatars.githubusercontent.com/u/78251332?v=4",
@@ -1446,22 +1410,6 @@
     "name": "Permabot",
     "logoURI": "https://pbs.twimg.com/profile_images/1352299085705998338/oerNhR16_400x400.jpg",
     "url": "https://permabot.xyz/",
-    "providers": ["redstone"],
-    "tags": ["crypto", "pst"]
-  },
-  "QUAD": {
-    "name": "SQUAD",
-    "url": "https://squad.vision/",
-    "providers": ["redstone"],
-    "tags": ["crypto", "pst"]
-  },
-  "SAM": {
-    "name": "The Great Sam",
-    "providers": ["redstone"],
-    "tags": ["crypto", "pst"]
-  },
-  "SUNNY": {
-    "name": "Sunshinebros",
     "providers": ["redstone"],
     "tags": ["crypto", "pst"]
   },
@@ -1479,7 +1427,6 @@
     "providers": ["redstone"],
     "tags": ["crypto", "pst"]
   },
-
   "XAVA": {
     "name": "Avalaunch",
     "logoURI": "https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xd1c3f94DE7e5B45fa4eDBBA472491a9f4B166FC4/logo.png",
@@ -1725,4 +1672,15 @@
     "providers": ["redstone-custom-urls-1"],
     "tags": ["nft"]
   }
-}
+}`
+
+const TokenListJSON = JSON.parse(TokenListString);
+const tokenKeys = Object.keys(TokenListJSON);
+const TokenList : any[] = [];
+
+tokenKeys.map((key, index)=> {
+  if (TokenListJSON[key].hasOwnProperty('logoURI'))
+    TokenList.push(TokenListJSON[key]);
+});
+
+export default TokenList;

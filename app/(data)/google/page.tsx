@@ -44,7 +44,7 @@ export default function Google() {
 
         <SimpleGrid columns={3} spacing="30px" w="60vw" pb={4}>
           {GoogleOracles.map((oracle: any, index: any) => (
-            <LinkBox>
+            <LinkBox key={index}>
               <Card maxW='sm' bg='gray.900'>
                 <CardBody>
                   <VStack>

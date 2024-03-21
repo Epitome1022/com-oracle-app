@@ -19,33 +19,19 @@ import {
   Center,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-import * as tokens from "@/app/common/tokens";
 
-type tokensJson = {
-  [name: string]: [
-    {
-      name: string;
-      logoURI: string;
-      url: string;
-      tags: any[];
-    }
-  ];
-};
-
-const tokenList = tokens as unknown as tokensJson;
-const tokenKeys = Object.keys(tokenList);
+import TokenList from "@/app/common/tokens";
 
 export default function Price() {
   const itemsPerPage = 24;
   const [tokensForPage, setTokensForPage] = useState<any[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  console.log(tokenList);
 
   const showPage = (currentPage: number) => {
     const updatedStartIndex = (currentPage - 1) * itemsPerPage;
     const updatedEndIndex = updatedStartIndex + itemsPerPage;
     const updatedTokensForPage = [
-      ...tokenKeys.slice(updatedStartIndex, updatedEndIndex),
+      ...TokenList.slice(updatedStartIndex, updatedEndIndex),
     ];
 
     setTokensForPage(updatedTokensForPage);
@@ -80,25 +66,22 @@ export default function Price() {
         </Flex>
         <SimpleGrid columns={4} w="60vw" spacing={4}>
           {tokensForPage.length > 0 &&
-            tokensForPage.map((tokenKey: any, index: any) => (
+            tokensForPage.map((token: any, index: any) => (
               <Card key={index} bg="gray.900">
                 <CardHeader>
                   <Image
-                    src={tokenList[tokenKey].logoURI}
-                    w="2rem"
-                    h="2rem"
-                    me={5}
-                  ></Image>
+                  key={index}
+                  src={token.logoURI}
+                  w="2rem"
+                  h="2rem"
+                  alt='LOGO'
+                  me={5} />
                 </CardHeader>
                 <CardBody>
                   <Heading size="md" color='wheat'>
-                    {tokenList[tokenKey].name}
+                    {token.name}
                   </Heading>
-                  {/* <Text color='gray.800' style={{'textTransform': 'uppercase'}}>{tokenList[tokenKey].tags[0]}</Text> */}
                 </CardBody>
-                {/* <CardFooter>
-                                <Button size='sm' bg='green.500' color='wheat'>View Details</Button>
-                            </CardFooter> */}
               </Card>
             ))}
         </SimpleGrid>
@@ -117,8 +100,8 @@ export default function Price() {
           </Button>
           <Button
             onClick={() => {
-              if (currentPage > tokenKeys.length / 24)
-                setCurrentPage(tokenKeys.length);
+              if (currentPage > TokenList.length / 24)
+                setCurrentPage(TokenList.length);
               else setCurrentPage(currentPage + 1);
               // showPage(currentPage)
             }}
